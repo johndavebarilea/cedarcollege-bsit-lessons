@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CEDAR College, Inc. - BSIT Lessons 2025</title>
+  <style>
+    :root{
+      --bg-top: #ffffff;
+      --bg-bottom: #e6f7ff; /* light blue */
+      --card-radius: 12px;
+      --card-gap: 16px;
+      --card-shadow: 0 6px 18px rgba(16,24,40,0.08);
+      --accent: #0b6fb5;
+    }
+    html,body{
+      height:100%;
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: linear-gradient(180deg, var(--bg-top), var(--bg-bottom));
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      color:#0b2540;
+    }
+
+    .wrapper{
+      max-width:1200px;
+      margin:32px auto;
+      padding:24px;
+    }
+
+    header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      margin-bottom:18px;
+    }
+
+    h1{
+      font-size:20px;
+      margin:0;
+      line-height:1.1;
+    }
+
+    p.lead{
+      margin:6px 0 0 0;
+      color:#234156;
+      opacity:0.85;
+      font-size:13px;
+    }
+
+    /* Grid */
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(2, 1fr); /* mobile: 2 columns */
+      gap:var(--card-gap);
+    }
+
+    /* At larger screens (PC) show 5 columns */
+    @media (min-width: 1024px){
+      .grid{ grid-template-columns: repeat(5, 1fr); }
+      h1{ font-size:22px; }
+    }
+
+    /* Card / square */
+    .card{
+      display:block;
+      text-decoration:none;
+      border-radius:var(--card-radius);
+      overflow:hidden;
+      background:#fff;
+      box-shadow:var(--card-shadow);
+      transition:transform .18s ease, box-shadow .18s ease;
+      aspect-ratio:1/1; /* ensures square */
+      position:relative;
+    }
+    .card:focus{
+      outline:3px solid rgba(11,111,181,0.16);
+      outline-offset:3px;
+    }
+    .card:hover{
+      transform:translateY(-6px) scale(1.01);
+      box-shadow:0 18px 30px rgba(11,43,73,0.12);
+    }
+
+    .card .media{
+      position:absolute;
+      inset:0;
+      display:block;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    /* caption overlay */
+    .caption{
+      position:absolute;
+      left:0; right:0; bottom:0;
+      padding:10px 12px;
+      background:linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(2,6,23,0.45) 60%, rgba(2,6,23,0.6) 100%);
+      color:#fff;
+      font-weight:600;
+      font-size:14px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      gap:8px;
+      min-height:48px;
+    }
+
+    .caption .title{
+      text-shadow:0 2px 6px rgba(0,0,0,0.45);
+    }
+
+    /* small label inside square (optional) */
+    .badge{
+      position:absolute;
+      top:10px;
+      left:10px;
+      background:rgba(255,255,255,0.88);
+      color:#0b2540;
+      padding:6px 8px;
+      border-radius:8px;
+      font-size:12px;
+      font-weight:600;
+      box-shadow:0 6px 14px rgba(16,24,40,0.06);
+    }
+
+    /* accessible hidden text for screen readers */
+    .sr-only{ position:absolute; height:1px; width:1px; overflow:hidden; clip:rect(1px,1px,1px,1px); white-space:nowrap; }
+
+    /* footer tiny */
+    .foot{
+      margin-top:16px;
+      font-size:13px;
+      color:#123;
+      opacity:0.7;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <header>
+      <div>
+        <h1>CEDAR College, Inc. - BSIT Lessons 2025</h1>
+        <p class="lead">Click any square to open the lesson or view details.</p>
+      </div>
+      <div aria-hidden="true">📚</div>
+    </header>
+
+    <main>
+      <div class="grid" id="grid">
+        
+        <a class="card" href="#" data-title="Computer Programming 2" onclick="openCard(event, this)" data-link="year1-prog2.html">
+          <img class="media" src="images/icons/prog2.png" alt="Computer Programming 2 image">
+          <div class="badge">1st Year - 2nd semester 2025-2026</div>
+          <div class="caption"><span class="title">Computer Programming 2</span></div>
+        </a>
+
+        <a class="card" href="#" data-title="Discrete Mathematics" onclick="openCard(event, this)" data-link="year1-discrete.html">
+          <img class="media" src="images/icons/discrete.jpg" alt="DDiscrete Mathematics image">
+          <div class="badge">1st Year - 2nd semester 2025-2026</div>
+          <div class="caption"><span class="title">Discrete Mathematics</span></div>
+        </a>
+
+
+      </div>
+
+      <p class="foot">Instructor: Mr. JOHN DAVE A. BARILEA Powered by GitHub CEDAR College, Inc. 2025</p>
+    </main>
+  </div>
+
+  <script>
+    function openCard(e, el){
+        e.preventDefault();
+
+        const link = el.dataset.link;
+        if(link){
+          window.location.href = link;
+        } else {
+          console.warn("No data-link found for this card.");
+        }
+    }
+
+    // optional: make grid items keyboard-activatable by Enter/Space
+    document.addEventListener('keydown', function(evt){
+      if(evt.key === 'Enter' || evt.key === ' '){
+        const active = document.activeElement;
+        if(active && active.classList && active.classList.contains('card')){
+          active.click();
+          evt.preventDefault();
+        }
+      }
+    });
+  </script>
+</body>
+</html>
