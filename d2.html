@@ -5,9 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>CEDAR College, Inc. - BSIT Lessons 2025</title>
   <style>
+    
+    #kanan{
+      text-align: right;
+        justify-content: flex-end;
+    }
+
     :root{
-      --bg-top: #e6fff7;
-      --bg-bottom: #e6fff0; /* light blue */
+      --bg-top: #eeffee;
+      --bg-bottom: #ddffdd; /* light blue */
       --card-radius: 12px;
       --card-gap: 16px;
       --card-shadow: 0 6px 18px rgba(16,24,40,0.08);
@@ -18,6 +24,9 @@
       margin:0;
       font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
       background: linear-gradient(180deg, var(--bg-top), var(--bg-bottom));
+             background-attachment: fixed;
+          background-repeat: no-repeat;
+          background-size: cover;
       -webkit-font-smoothing:antialiased;
       -moz-osx-font-smoothing:grayscale;
       color:#0b2540;
@@ -53,7 +62,8 @@
     /* Grid */
     .grid{
       display:flex;
-      flex-direction:column;
+      flex-direction:row;
+      justify-content:space-between;
       gap:var(--card-gap);
     }
 
@@ -65,6 +75,7 @@
 
     /* Card / square */
     .card{
+      width:48%;
       display:flex;
       flex-direction:row;
       text-decoration:none;
@@ -103,7 +114,6 @@
       font-size:16px;
       font-weight:600;
       text-align:left;
-      margin-left: 80px;
     }
 
 
@@ -131,44 +141,70 @@
       color:#123;
       opacity:0.7;
     }
+
   </style>
 </head>
 <body>
   <div class="wrapper">
     <header>
       <div>
-        <h1>Discrete Mathematics</h1>
-        <p class="lead">Click any square to open the lesson or view details.</p>
+        <h1>Lesson 1. (part 2) Truth Tables</h1>
+        
       </div>
       <div aria-hidden="true">📚</div>
     </header>
 
     <main>
       <div class="grid" id="grid">
-        
-        <a class="card" href="#" data-title="Home" onclick="openCard(event, this)"  data-link="index.html">
-          <div class="caption"><span class="title">🏠 Home</span></div>
+        <!-- Example cards: change image src, caption and href as needed -->
+        <a class="card" href="#" data-title="Back" onclick="openCard(event, this)" data-link="d1.html">          
+          <div class="caption"><span class="title">⬅️Back</span></div>
         </a>
 
-        <a class="card" href="#" data-title="Preface" onclick="openCard(event, this)"  data-link="d0.html">
-          <div class="badge">Preface</div>
-          <div class="caption"><span class="title">Introduction</span></div>
+        <a class="card" href="#" data-title="Home" onclick="openCard(event, this)" data-link="year1-discrete.html">          
+          <div class="caption"><span class="title">🏠Home</span></div>
         </a>
 
-        <a class="card" href="#" data-title="Lesson 1" onclick="openCard(event, this)"  data-link="d1.html">
-          <div class="badge">Lesson 1</div>
-          <div class="caption"><span class="title">(Topic 1) Propositional Logic</span></div>
-        </a>
-
-        
-        <a class="card" href="#" data-title="Lesson 1b" onclick="openCard(event, this)"  data-link="d2.html">
-          <div class="badge">Lesson 1</div>
-          <div class="caption"><span class="title">(Topic 2) Truth Tables</span></div>
+        <a class="card" href="#" data-title="Next" onclick="openCard(event, this)">          
+          <div class="caption" id="kanan"><span class="title" id="kanan">➡️Next</span></div>
         </a>
 
       </div>
 
-      
+      <br>
+
+      <img width="100%" src="images\lessons\d2\01.PNG"><br>
+      <img width="100%" src="images\lessons\d2\02.PNG"><br>
+      <img width="100%" src="images\lessons\d2\03.PNG"><br>
+      <img width="100%" src="images\lessons\d2\04.PNG"><br>
+      <img width="100%" src="images\lessons\d2\05.PNG"><br>
+      <img width="100%" src="images\lessons\d2\06.PNG"><br>
+      <img width="100%" src="images\lessons\d2\07.PNG"><br>
+      <img width="100%" src="images\lessons\d2\08.PNG"><br>
+      <img width="100%" src="images\lessons\d2\09.PNG"><br>
+      <img width="100%" src="images\lessons\d2\10.PNG"><br>
+      <img width="100%" src="images\lessons\d2\11.PNG"><br>
+      <img width="100%" src="images\lessons\d2\12.PNG"><br>
+
+      <br>
+
+      <div class="grid" id="grid">
+        <!-- Example cards: change image src, caption and href as needed -->
+        <a class="card" href="#" data-title="Back" onclick="openCard(event, this)" data-link="d1.html">               
+          <div class="caption"><span class="title">⬅️Back</span></div>
+        </a>
+
+        <a class="card" href="#" data-title="Home" onclick="openCard(event, this)" data-link="year1-discrete.html">          
+          <div class="caption"><span class="title">🏠Home</span></div>
+        </a>
+
+        <a class="card" href="#" data-title="Next" onclick="openCard(event, this)">          
+          <div class="caption" id="kanan"><span class="title" id="kanan">➡️Next</span></div>
+        </a>
+
+      </div>
+
+      <p class="foot">Instructor: Mr. JOHN DAVE A. BARILEA &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Powered by GitHub &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CEDAR College, Inc. 2025</p>
     </main>
   </div>
 
